@@ -49,6 +49,23 @@
 
                                         </div>
                                     </fieldset>
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Event Latitude</label>
+                                            <div class="col-sm-4"><input type="text" name="event_lat" id="event_lat" class="form-control" value="<?php echo $rows->event_lat; ?>">
+                                            </div>
+
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Event Longtitude</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" name="event_long" id="event_long" class="form-control" value="<?php echo $rows->event_long; ?>">
+                                            </div>
+
+                                        </div>
+                                    </fieldset>
 
                                     <fieldset>
                                         <div class="form-group">

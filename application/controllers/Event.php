@@ -79,8 +79,10 @@ class Event extends CI_Controller {
 			 $event_date=$this->input->post('event_date');
 			 $event_name=$this->input->post('event_name');
 			 $event_details= $this->db->escape_str($this->input->post('event_details'));
+			 $event_lat=$this->input->post('event_lat');
+			 $event_long=$this->input->post('event_long');
 			 $event_status=$this->input->post('event_status');
-			 $datas=$this->eventmodel->create_event($event_date,$event_name,$event_details,$event_status);
+			 $datas=$this->eventmodel->create_event($event_date,$event_name,$event_details,$event_lat,$event_long,$event_status);
 			 if($datas['status']=="success"){
 				 $this->session->set_flashdata('msg', 'Added Successfully');
 				 redirect('event/create');

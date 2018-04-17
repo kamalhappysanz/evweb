@@ -46,6 +46,23 @@
 
                                         </div>
                                     </fieldset>
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Event Latitude</label>
+                                            <div class="col-sm-4"><input type="text" name="event_lat" id="event_lat" class="form-control">
+                                            </div>
+
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Event Longtitude</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" name="event_long" id="event_long" class="form-control">
+                                            </div>
+
+                                        </div>
+                                    </fieldset>
 
                                     <fieldset>
                                         <div class="form-group">
@@ -145,7 +162,7 @@
                             </div> <!-- end col-md-12 -->
                         </div> <!-- end row -->
 
-                    </div>
+
 </div>
 </div>
 

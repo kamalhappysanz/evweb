@@ -27,10 +27,10 @@ Class Eventmodel extends CI_Model
           }
 
         }
-       function create_event($event_date,$event_name,$event_details,$event_status){
+       function create_event($event_date,$event_name,$event_details,$event_lat,$event_long,$event_status){
          $acd_year=$this->get_cur_year();
           $year_id= $acd_year['cur_year'];
-          $query="INSERT INTO edu_events (year_id,event_name,event_date,event_details,status,created_at) VALUES ('$year_id','$event_name','$event_date','$event_details','$event_status',NOW())";
+          $query="INSERT INTO edu_events (year_id,event_name,event_date,event_details,event_lat,event_long,status,created_at) VALUES ('$year_id','$event_name','$event_date','$event_details','$event_lat','$event_long','$event_status',NOW())";
           $res=$this->db->query($query);
 		  if($res){
             $data= array("status" => "success");
@@ -139,7 +139,7 @@ Class Eventmodel extends CI_Model
 			$result=$this->db->query($query);
 			return $result->result();
 		  }
-		  
+
 		  function save_to_do_list($to_do_date,$to_do_list,$to_do_notes,$to_user,$user_type,$status){
 				  $query="INSERT INTO edu_reminder(user_id,to_do_date,to_do_title,to_do_description,status,created_by,created_at,updated_by,updated_at) VALUES ('$to_user','$to_do_date','$to_do_list','$to_do_notes','$status','$user_type',NOW(),'$user_type',NOW())";
 				  $resultset=$this->db->query($query);
@@ -151,7 +151,7 @@ Class Eventmodel extends CI_Model
 					return $data;
 				  }
 				}
-		
+
 		function view_all_reminder($user_id){
           $query="SELECT to_do_date AS start,to_do_title AS title,to_do_description AS description FROM edu_reminder AS eh WHERE user_id='$user_id' AND status='Active'";
           $result=$this->db->query($query);

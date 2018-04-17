@@ -1,7 +1,7 @@
 
 <div class="main-panel">
 <div class="content">
-<div class="col-md-12">
+<div class="col-md-6">
 
                         <div class="card">
                             <div class="header">
@@ -20,8 +20,8 @@
                                 <form method="post" action="<?php echo base_url(); ?>event/save" class="form-horizontal" enctype="multipart/form-data" id="eventform" name="eventform">
                                     <fieldset>
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label">Event Date</label>
-                                            <div class="col-sm-4">
+                                            <label class="col-sm-3 control-label">Event Date</label>
+                                            <div class="col-sm-9">
                                                 <input type="text" name="event_date" class="form-control datepicker" placeholder="Admission Date" value="<?php echo $rows->event_date; ?>"/>
 
                                             </div>
@@ -30,8 +30,8 @@
                                     </fieldset>
                                     <fieldset>
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label">Event Name</label>
-                                            <div class="col-sm-4">
+                                            <label class="col-sm-3 control-label">Event Name</label>
+                                            <div class="col-sm-9">
                                                 <input type="text" name="event_name" class="form-control" value="<?php echo $rows->event_name; ?>">
                                                   <input type="hidden" name="event_id" class="form-control" value="<?php echo $rows->event_id; ?>">
 
@@ -41,8 +41,8 @@
                                     </fieldset>
                                     <fieldset>
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label">Event Details</label>
-                                            <div class="col-sm-4">
+                                            <label class="col-sm-3 control-label">Event Details</label>
+                                            <div class="col-sm-9">
                                                 <textarea type="text" MaxLength="350" placeholder="MaxCharacters 350" name="event_details" class="form-control"><?php echo $rows->event_details; ?></textarea>
 
                                             </div>
@@ -51,26 +51,27 @@
                                     </fieldset>
                                     <fieldset>
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label">Event Latitude</label>
-                                            <div class="col-sm-4"><input type="text" name="event_lat" id="event_lat" class="form-control" value="<?php echo $rows->event_lat; ?>">
+                                            <label class="col-sm-3 control-label">Event Latitude</label>
+                                            <div class="col-sm-9"><input type="text" name="event_lat" id="event_lat" class="form-control" value="<?php echo $rows->event_lat; ?>">
                                             </div>
 
                                         </div>
                                     </fieldset>
                                     <fieldset>
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label">Event Longtitude</label>
-                                            <div class="col-sm-4">
+                                            <label class="col-sm-3 control-label">Event Longtitude</label>
+                                            <div class="col-sm-9">
                                                 <input type="text" name="event_long" id="event_long" class="form-control" value="<?php echo $rows->event_long; ?>">
                                             </div>
 
+
                                         </div>
                                     </fieldset>
 
                                     <fieldset>
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label">Event Status</label>
-                                            <div class="col-sm-4">
+                                            <label class="col-sm-3 control-label">Event Status</label>
+                                            <div class="col-sm-9">
                                               <select name="event_status" class="selectpicker form-control" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
                                                 <option value="Active">Active</option>
                                                 <option value="Deactive">De-Active</option>
@@ -99,8 +100,33 @@
                         </div>  <!-- end card -->
 
                     </div>
+                    <div class="col-sm-6">
+                      <div id="map"></div>
+                    </div>
 </div>
 </div>
+<style>
+      #map {
+       height: 400px;
+       width: 100%;
+      }
+   </style>
+<script>
+     function initMap() {
+       var uluru = {lat: <?php  echo $rows->event_lat;  ?>, lng: <?php  echo $rows->event_long;  ?>};
+       var map = new google.maps.Map(document.getElementById('map'), {
+         zoom: 13,
+         center: uluru
+       });
+       var marker = new google.maps.Marker({
+         position: uluru,
+         map: map
+       });
+     }
+   </script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5gSdWUFKY6EEpRY_vc-lvZ6RilDEd06s&callback=initMap">
+    </script>
 <script type="text/javascript">
 $(document).ready(function () {
   $('#eventmenu').addClass('collapse in');

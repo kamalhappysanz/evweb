@@ -57,8 +57,8 @@ Class Eventmodel extends CI_Model
           $result=$this->db->query($query);
           return $result->result();
         }
-        function save_event($event_id,$event_date,$event_name,$event_details,$event_status){
-           $query="UPDATE edu_events SET event_name='$event_name',event_date='$event_date',event_details='$event_details',status='$event_status' WHERE event_id='$event_id'";
+        function save_event($event_id,$event_date,$event_name,$event_details,$event_status,$event_lat,$event_long){
+           $query="UPDATE edu_events SET event_name='$event_name',event_date='$event_date',event_details='$event_details',status='$event_status',event_lat='$event_lat',event_long='$event_long' WHERE event_id='$event_id'";
            $result=$this->db->query($query);
           if($result){
             $data= array("status" => "success");
